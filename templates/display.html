@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Page</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="display">Display</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="update">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="delete">Delete</a>
+                    </li>
+                </ul>
+                <div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleLoginModal">Login</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleSignupModal">Signup</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <h2 class="text-center py-5">Display All Records</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email ID</th>
+                <th scope="col">Mobile</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for records in alldata %}
+                <tr>
+                    <th>{{records.id}}</th>
+                    <th>{{records.name}}</th>
+                    <th>{{records.email}}</th>
+                    <th>{{records.mobile}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>
